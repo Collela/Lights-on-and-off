@@ -1,5 +1,4 @@
-const turnOn = document.getElementById('btnOn');
-const turnOff = document.getElementById('btnOff');
+const turnOnOff = document.getElementById('btnOnOff');
 const bulb = document.getElementById('bulb');
 
 function isBulbBroken() {
@@ -23,8 +22,17 @@ function bulbBroken () {
     bulb.src = './img/quebrada.jpg';
 }
 
-turnOn.addEventListener('click', bulbOn);
-turnOff.addEventListener('click', bulbOff);
+function bulbOnOff () {
+    if( turnOnOff.textContent == 'Turn ON!'){
+        bulbOn();
+        turnOnOff.textContent = 'Turn OFF!';
+    }else{
+        bulbOff();
+        turnOnOff.textContent = 'Turn ON!';
+    }
+}
+
+turnOnOff.addEventListener('click', bulbOnOff);
 
 bulb.addEventListener('mouseover', bulbOn);
 bulb.addEventListener('mouseout', bulbOff);
